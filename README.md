@@ -24,5 +24,5 @@ We used the DNN version of the Edge-IIoTset dataset (2.2 million packets). Due t
 
 3\. Run the Python script or the Jupyter Notebook:
 
-&#x20;  python fl\_dtace\_v3.py
+&#x20;  python fl\_dtace.py
 
