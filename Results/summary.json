@@ -1,0 +1,165 @@
+{
+  "config": {
+    "RUN_TAG": "Big",
+    "OUT_ROOT": "D:/SHOVON/Academic/AIUB/@11th Semester (Summer 25-26)/Thesis/Main Paper/Code/Output_3/mew",
+    "SEED": "42",
+    "USE_SYNTHETIC": "False",
+    "CSV_PATH": "D:/SHOVON/Academic/AIUB/@11th Semester (Summer 25-26)/Thesis/Main Paper/Code/Edge-IIoTset dataset/Selected dataset for ML and DL/DNN-EdgeIIoT-dataset.csv",
+    "CSV_NAME": "ML-EdgeIIoT-dataset.csv",
+    "USE_GPU": "True",
+    "MAX_ROWS": "None",
+    "TEST_SIZE": "0.3",
+    "VAL_SIZE": "0.15",
+    "STREAM_N": "None",
+    "KEEP_PORTS": "True",
+    "INCLUDE_BEH_IN_X": "False",
+    "HOLDOUT_ATTACKS": "()",
+    "N_SUBSTATIONS": "5",
+    "NON_IID": "True",
+    "NON_IID_ALPHA": "1.0",
+    "FL_ROUNDS": "30",
+    "LOCAL_EPOCHS": "2",
+    "BATCH_SIZE": "256",
+    "LR": "0.003",
+    "HIDDEN": "(32, 16)",
+    "QUANT_BITS": "8",
+    "P_TH": "None",
+    "P_TH_BENIGN_PCTL": "99.0",
+    "W1": "0.6",
+    "W2": "0.4",
+    "T_TH": "None",
+    "T_TH_BENIGN_PCTL": "3.0",
+    "ALPHA": "0.1",
+    "ZCAP": "3.0",
+    "SD_FLOOR": "0.05",
+    "LATENCY_BUDGET_MS": "10.0",
+    "FASTPATH_MARGIN": "0.9",
+    "EDGE_SLOWDOWN": "3.0",
+    "AIR_MS": "(1.0, 5.0)",
+    "UPLINK_MS": "(0.3, 1.5)",
+    "QUEUE_MEAN_MS": "0.8",
+    "BURST_P": "0.05",
+    "BURST_MS": "(3.0, 8.0)",
+    "CACHE_LOOKUP_MS": "0.02",
+    "DC_STORE_MS": "(0.1, 0.4)",
+    "CLOUD_WAN_MEDIAN_MS": "22.0",
+    "CLOUD_WAN_SIGMA": "0.35",
+    "CLOUD_PDP_MS": "(0.5, 1.5)",
+    "SIG_K": "5",
+    "SIG_BINS": "20",
+    "RULE_MIN_SIGHTINGS": "5",
+    "MAX_RULES": "2000",
+    "BCAST_HOP_MS": "1.0",
+    "N_PRINT": "8"
+  },
+  "P_th": 0.4759569466114044,
+  "T_th": 0.774534984612727,
+  "metrics": {
+    "accuracy": 0.9596191426052292,
+    "precision": 0.9025902135881769,
+    "recall": 0.9545419400446241,
+    "f1": 0.9278394236602086,
+    "fpr": 0.03848415388709967,
+    "balanced_acc": 0.9580288930787623,
+    "mcc": 0.9005146074515044,
+    "precision_at_50pct_prevalence": 0.9612455764030047
+  },
+  "ablation": {
+    "Classifier only (FL int8)": {
+      "auc": 0.9930679803811588,
+      "tpr@fpr1%": 0.9300483796142885,
+      "tpr@fpr2%": 0.9383325601431506,
+      "tpr@fpr5%": 0.9596339496763647
+    },
+    "B_norm only (standard ZTA rules)": {
+      "auc": 0.731907453049405,
+      "tpr@fpr1%": 0.23340458516277238,
+      "tpr@fpr2%": 0.25630441080072136,
+      "tpr@fpr5%": 0.3250038877145683
+    },
+    "FL-DTACE: classifier + B_norm (proposed)": {
+      "auc": 0.9928264116637742,
+      "tpr@fpr1%": 0.9302913822431351,
+      "tpr@fpr2%": 0.9387312176074317,
+      "tpr@fpr5%": 0.9597112686946341
+    },
+    "NEG. RESULT: + per-device trust": {
+      "auc": 0.9436231359896244,
+      "tpr@fpr1%": 0.5698356418583074,
+      "tpr@fpr2%": 0.6093235690458834,
+      "tpr@fpr5%": 0.6925188327037356
+    },
+    "NEG. RESULT control: shuffled device ids": {
+      "auc": 0.7848569422672269,
+      "tpr@fpr1%": 0.1333145558574679,
+      "tpr@fpr2%": 0.18053990765900105,
+      "tpr@fpr5%": 0.28761017960103386
+    }
+  },
+  "fl_comparison": {
+    "Centralised (no privacy)": {
+      "auc": 0.9942266525759222,
+      "tpr@fpr1%": 0.9414032297258489,
+      "tpr@fpr2%": 0.9489584023681711,
+      "tpr@fpr5%": 0.9612245123379062
+    },
+    "FedAvg float32": {
+      "auc": 0.9928959966802283,
+      "tpr@fpr1%": 0.9376311661917069,
+      "tpr@fpr2%": 0.9434908432191221,
+      "tpr@fpr5%": 0.9564196876311661
+    },
+    "FL-DTACE int8": {
+      "auc": 0.9930679803811588,
+      "tpr@fpr1%": 0.9300483796142885,
+      "tpr@fpr2%": 0.9383325601431506,
+      "tpr@fpr5%": 0.9596339496763647
+    },
+    "Local-only (mean of sub-stations)": {
+      "auc": 0.9920215082377124,
+      "worst": 0.9907979886947595,
+      "best": 0.9926552319974454
+    }
+  },
+  "unseen": {},
+  "latency": {
+    "FL-DTACE (fast path)": {
+      "mean_ms": 4.5847241114802815,
+      "p50_ms": 4.546277161947417,
+      "p95_ms": 7.30731056027205,
+      "p99_ms": 8.54552617888827,
+      "pct_under_10ms": 99.96830694498476
+    },
+    "FL-DTACE (no fast path)": {
+      "mean_ms": 4.781066877723285,
+      "p50_ms": 4.592418725193033,
+      "p95_ms": 8.095742406475953,
+      "p99_ms": 11.939711645843854,
+      "pct_under_10ms": 97.58922496211103
+    },
+    "FL-DTACE (feedback off)": {
+      "mean_ms": 4.556001769315854,
+      "p50_ms": 4.518611069986466,
+      "p95_ms": 7.253580356522042,
+      "p99_ms": 8.50965946507342,
+      "pct_under_10ms": 99.98002286105675
+    },
+    "Cloud ZTA (simulated)": {
+      "mean_ms": 51.5840831757115,
+      "p50_ms": 50.126557078415544,
+      "p95_ms": 73.38296850194031,
+      "p99_ms": 86.50864669469706,
+      "pct_under_10ms": 0.0
+    }
+  },
+  "compute_only_ms": {
+    "mean": 0.05050650703956807,
+    "p99": 0.30189999961294234
+  },
+  "uplink_bytes": {
+    "int8": 224550,
+    "fp32": 883800
+  },
+  "rows": 2219201,
+  "test_attack_share": 0.27197147324640525
+}

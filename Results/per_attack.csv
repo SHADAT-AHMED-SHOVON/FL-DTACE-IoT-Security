@@ -1,0 +1,16 @@
+atype,packets,detection_rate,mean_latency_ms
+Backdoor,7473,0.9451,3.4059
+DDoS_HTTP,14813,0.8919,3.3751
+DDoS_ICMP,35220,1.0,3.0204
+DDoS_TCP,15023,0.9117,3.3021
+DDoS_UDP,36360,1.0,3.0335
+Fingerprinting,325,0.8031,3.6537
+MITM,373,0.9812,4.3286
+Normal,484693,0.0385,5.0972
+Password,15083,0.8731,3.4042
+Port_Scanning,6776,0.9594,3.244
+Ransomware,3278,0.9954,3.2535
+SQL_injection,15468,0.9999,3.1145
+Uploading,11202,0.8625,3.5227
+Vulnerability_scanner,15015,0.9659,3.2095
+XSS,4659,0.8789,3.7376
